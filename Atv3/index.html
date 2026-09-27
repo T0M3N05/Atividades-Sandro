@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas (To-Do List)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        li:hover {
+            background: #f1f1f1;
+        }
+
+        li.concluida span.texto-tarefa {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .tarefa-conteudo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .btn-remover {
+            background: transparent;
+            color: #ff4d4d;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 2px 6px;
+        }
+
+        .btn-remover:hover {
+            color: #cc0000;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Minha Lista de Tarefas</h1>
+        
+        <div class="input-group">
+            <input type="text" id="inputTarefa" placeholder="Digite uma nova tarefa...">
+            <button id="btnAdicionar">Adicionar</button>
+        </div>
+
+        <ul id="listaTarefas"></ul>
+    </div>
+
+    <script>
+        const inputTarefa = document.getElementById('inputTarefa');
+        const btnAdicionar = document.getElementById('btnAdicionar');
+        const listaTarefas = document.getElementById('listaTarefas');
+
+        function adicionarTarefa() {
+            const texto = inputTarefa.value.trim();
+
+            if (texto === "") {
+                alert("Por favor, digite uma tarefa válida!");
+                return;
+            }
+
+            const li = document.createElement('li');
+
+            li.innerHTML = `
+                <div class="tarefa-conteudo">
+                    <input type="checkbox" class="checkbox-tarefa">
+                    <span class="texto-tarefa">${texto}</span>
+                </div>
+                <button class="btn-remover">❌</button>
+            `;
+
+            listaTarefas.appendChild(li);
+
+            inputTarefa.value = "";
+            inputTarefa.focus();
+        }
+
+        btnAdicionar.addEventListener('click', adicionarTarefa);
+
+        inputTarefa.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                adicionarTarefa();
+            }
+        });
+
+        listaTarefas.addEventListener('click', (e) => {
+            const elementoAlvo = e.target;
+            const li = elementoAlvo.closest('li');
+
+            if (!li) return;
+
+            if (elementoAlvo.classList.contains('checkbox-tarefa')) {
+                li.classList.toggle('concluida', elementoAlvo.checked);
+            }
+
+            if (elementoAlvo.classList.contains('btn-remover')) {
+                li.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorando o Espaço: Missões a Marte</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-container">
+      <h1 class="logo">AstroBlog</h1>
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-links">
+          <li><a href="#artigo">Artigo</a></li>
+          <li><a href="#midia">Mídia</a></li>
+          <li><a href="#comentarios">Comentários</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container layout-grid">
+
+    <article id="artigo" class="post-content">
+      <header class="post-header">
+        <h2>A Corrida para Marte: O Futuro da Exploração</h2>
+        <p class="post-meta">Publicado em <time datetime="2026-09-07">07 de Setembro de 2026</time> por <strong>Lucas Silva</strong></p>
+      </header>
+
+      <section class="post-body">
+        <p>A colonização de Marte já não pertence apenas à ficção científica. Diversas agências espaciais e empresas privadas estão investindo em tecnologias de propulsão, habitação e reciclagem de recursos vitais.</p>
+        
+        <h3>Os Maiores Desafios</h3>
+        <p>A radiação cósmica, a atmosfera rarefeita e o isolamento prolongado estão entre as principais barreiras enfrentadas pela medicina e engenharia aeroespacial atual.</p>
+      </section>
+
+      <section id="midia" class="media-section">
+        <h3>Vídeo em Destaque</h3>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" 
+            title="Vídeo informativo sobre exploração espacial" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+
+      <section id="comentarios" class="comment-section">
+        <h3>Deixe seu comentário</h3>
+        
+        <form action="#" method="post" class="comment-form">
+          <div class="form-group">
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex: Maria Souza" required minlength="3">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Seu E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="maria@exemplo.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Comentário:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="O que você achou do post?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Enviar Comentário</button>
+        </form>
+      </section>
+    </article>
+
+    <aside class="sidebar">
+      <section class="widget">
+        <h4>Sobre o Autor</h4>
+        <p>Estudante de desenvolvimento web apaixonado por astronomia e novas tecnologias.</p>
+      </section>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 AstroBlog. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
