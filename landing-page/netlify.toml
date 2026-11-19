@@ -1,0 +1,11 @@
+# Configuração do Netlify
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+# Deixa o formulário chamar /api/enviar-email em vez de /.netlify/functions/enviar-email
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
